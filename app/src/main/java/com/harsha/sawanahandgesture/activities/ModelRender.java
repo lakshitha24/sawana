@@ -27,19 +27,14 @@ public class ModelRender  extends Activity {
         videoview.setMediaController(null);
         videoview.requestFocus();
         videoview.start();
-
-           videoview.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+        videoview.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
                     Uri uri = Uri.parse("android.resource://" + getPackageName() + "/raw/" + splitStr[1]);
                     videoview.setVideoURI(uri);
                     videoview.start();
-                    Intent intent = new Intent(ModelRender.this, VoiceActivity.class);
-                    startActivity(intent);
 
                 }
             });
-
-
-    }
+ }
 }
