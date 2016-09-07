@@ -3,6 +3,7 @@ package com.harsha.sawanahandgesture.activities;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -17,6 +18,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v4.view.GestureDetectorCompat;
 import android.text.Html;
@@ -869,7 +871,7 @@ public class AnalyzeActivity extends Activity
         textPeak.getChars(0, Math.min(textPeak.length(), textPeakChar.length), textPeakChar, 0);
 
 
-        if(maxAmpFreq > 2500) {
+        if(maxAmpFreq > 2375) {
             //   do{
             double test = maxAmpFreq;
             cArray(test);
@@ -932,18 +934,62 @@ public class AnalyzeActivity extends Activity
 
             }
         }.start();
-
-
-    }
+ }
 
     public void mAveg(ArrayList<Double> values){
 
         for(Double data:values){
-            if( 2380 <= data && 2400 >=data ){
+            if( 2375 <= data && 2760 >=data ){
+
+                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+                v.vibrate(100);
+                String text="1";
+                dialogBox(text);
                 Log.i("tag","ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
+
             }
+            else if(2810 <= data && 2830 >= data){
+                String text="2";
+                dialogBox(text);
+                Log.i("tag","ryyyyyyyyyyyyyyyy");
+
+            }
+            else if(2820 <= data && 2830 >=data){
+                String text="3";
+                dialogBox(text);
+            }
+            else if(2820 <= data && 2830 >=data){
+                String text="4";
+                dialogBox(text);
+            }
+
         }
 
+    }
+    public void dialogBox(String text){
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(AnalyzeActivity.this);
+        builder1.setMessage(text);
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        builder1.setNegativeButton(
+                "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
     }
 
 
