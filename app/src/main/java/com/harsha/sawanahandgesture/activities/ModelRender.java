@@ -1,6 +1,7 @@
 package com.harsha.sawanahandgesture.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,26 +22,24 @@ public class ModelRender  extends Activity {
         String data = getIntent().getExtras().getString("keyName");
         final String[] splitStr = data.split("\\s+");
         final VideoView videoview = (VideoView) findViewById(R.id.videoView);
-
-
-     //   for(int i=0;i<splitStr.length;i++) {
-
-        Uri uri = Uri.parse("android.resource://" + getPackageName() + "/raw/"+ splitStr[0] );
-    //    }
-
-        videoview.setVideoURI(uri);
+         Uri uri = Uri.parse("android.resource://" + getPackageName() + "/raw/"+ splitStr[0] );
+          videoview.setVideoURI(uri);
         videoview.setMediaController(null);
         videoview.requestFocus();
         videoview.start();
 
-        videoview.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                Uri uri = Uri.parse("android.resource://" + getPackageName() + "/raw/"+ splitStr[1] );
-                videoview.setVideoURI(uri);
-                videoview.start();
+           videoview.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    Uri uri = Uri.parse("android.resource://" + getPackageName() + "/raw/" + splitStr[1]);
+                    videoview.setVideoURI(uri);
+                    videoview.start();
+                    Intent intent = new Intent(ModelRender.this, VoiceActivity.class);
+                    startActivity(intent);
 
-            }
-        });
+                }
+            });
+
+
     }
 }
