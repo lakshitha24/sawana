@@ -942,33 +942,34 @@ public class AnalyzeActivity extends Activity
             if( 2375 <= data && 2760 >=data ){
 
                 Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-
                 v.vibrate(100);
                 String text="1";
                 dialogBox(text);
-                Log.i("tag","ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
+                Log.i("tag","Range Between 2375Hz and 2760Hz");
 
             }
             else if(2810 <= data && 2830 >= data){
                 String text="2";
                 Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-
                 v.vibrate(100);
                 dialogBox(text);
-                Log.i("tag","ryyyyyyyyyyyyyyyy");
+                Log.i("tag","Range Between 2810Hz and 2830Hz");
 
             }
-            else if(2820 <= data && 2830 >=data){
+       /*     else if(2820 <= data && 2830 >=data){
+                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(100);
                 String text="3";
                 dialogBox(text);
+                Log.i("tag","Range Between 2810Hz and 2830Hz");
             }
             else if(2820 <= data && 2830 >=data){
                 String text="4";
                 Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-
                 v.vibrate(100);
                 dialogBox(text);
-            }
+                Log.i("tag","Range Between 2810Hz and 2830Hz");
+            }*/
 
         }
 

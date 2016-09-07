@@ -15,6 +15,7 @@ import com.harsha.sawanahandgesture.R;
  */
 public class ModelRender  extends Activity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,17 +23,25 @@ public class ModelRender  extends Activity {
         String data = getIntent().getExtras().getString("keyName");
         final String[] splitStr = data.split("\\s+");
         final VideoView videoview = (VideoView) findViewById(R.id.videoView);
-         Uri uri = Uri.parse("android.resource://" + getPackageName() + "/raw/"+ splitStr[0] );
-          videoview.setVideoURI(uri);
+        Uri uri = Uri.parse("android.resource://" + getPackageName() + "/raw/"+ splitStr[0] );
+        videoview.setVideoURI(uri);
         videoview.setMediaController(null);
         videoview.requestFocus();
         videoview.start();
+
         videoview.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
-                    Uri uri = Uri.parse("android.resource://" + getPackageName() + "/raw/" + splitStr[1]);
-                    videoview.setVideoURI(uri);
-                    videoview.start();
+                    if(splitStr.length>1) {
+                        Uri uri = Uri.parse("android.resource://" + getPackageName() + "/raw/" + splitStr[1]);
+                        videoview.setVideoURI(uri);
+                        videoview.start();
+
+                     }
+
+                    else{
+                        finish();
+                    }
 
                 }
             });

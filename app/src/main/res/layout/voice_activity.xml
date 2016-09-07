@@ -19,6 +19,9 @@
         android:layout_height="wrap_content"
         android:text="Click here to start"
         android:id="@+id/buttonstart"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/button_gradien"
         android:layout_gravity="center_horizontal" />
 
     <Button
@@ -26,7 +29,10 @@
         android:layout_height="wrap_content"
         android:text="suggestion"
         android:id="@+id/buttonsug"
+        android:background="@drawable/button_gradien"
         android:layout_gravity="center_horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:visibility="gone" />
 
     <TextView
