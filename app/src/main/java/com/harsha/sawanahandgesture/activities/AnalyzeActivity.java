@@ -951,6 +951,9 @@ public class AnalyzeActivity extends Activity
             }
             else if(2810 <= data && 2830 >= data){
                 String text="2";
+                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+                v.vibrate(100);
                 dialogBox(text);
                 Log.i("tag","ryyyyyyyyyyyyyyyy");
 
@@ -961,6 +964,9 @@ public class AnalyzeActivity extends Activity
             }
             else if(2820 <= data && 2830 >=data){
                 String text="4";
+                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+                v.vibrate(100);
                 dialogBox(text);
             }
 
